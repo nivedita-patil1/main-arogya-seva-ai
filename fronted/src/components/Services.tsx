@@ -1,38 +1,62 @@
 function Services() {
+  const services = [
+    {
+      icon: "🤖",
+      title: "AI Health Assistant",
+      description:
+        "Get quick and intelligent answers to your general healthcare questions with our AI-powered assistant.",
+    },
+    {
+      icon: "🔍",
+      title: "Symptom Guidance",
+      description:
+        "Understand common symptoms and receive helpful health information to guide your next steps.",
+    },
+    {
+      icon: "🩺",
+      title: "Find a Doctor",
+      description:
+        "Discover healthcare support and find the right medical professional for your needs.",
+    },
+    {
+      icon: "📅",
+      title: "Book Appointment",
+      description:
+        "Make healthcare access easier by planning and managing your doctor appointments.",
+    },
+  ]
+
   return (
-    <section className="bg-blue-50 px-6 py-20">
-      <div className="mx-auto max-w-6xl text-center">
-        <h2 className="text-4xl font-bold text-gray-900">
-          Our Healthcare Services 🏥
-        </h2>
+    <div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {services.map((service) => (
+          <div
+            key={service.title}
+            className="group rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+          >
+            {/* Icon */}
+            <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-teal-50 text-3xl transition-transform duration-300 group-hover:scale-110">
+              {service.icon}
+            </div>
 
-        <p className="mt-4 text-gray-600">
-          Smart healthcare solutions powered by ArogyaSeva AI.
-        </p>
+            {/* Title */}
+            <h3 className="mt-5 text-xl font-bold text-gray-900">
+              {service.title}
+            </h3>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-4">
-          <div className="rounded-xl bg-white p-6 shadow">
-            🤖
-            <h3 className="mt-4 font-bold">AI Health Assistant</h3>
+            {/* Description */}
+            <p className="mt-3 text-sm leading-6 text-gray-600">
+              {service.description}
+            </p>
+
+            {/* Learn More */}
+            <button className="mt-5 font-semibold text-teal-600 transition-colors hover:text-teal-700">
+              Learn More →
+            </button>
           </div>
-
-          <div className="rounded-xl bg-white p-6 shadow">
-            🩺
-            <h3 className="mt-4 font-bold">Symptom Checker</h3>
-          </div>
-
-          <div className="rounded-xl bg-white p-6 shadow">
-            👨‍⚕️
-            <h3 className="mt-4 font-bold">Find a Doctor</h3>
-          </div>
-
-          <div className="rounded-xl bg-white p-6 shadow">
-            📅
-            <h3 className="mt-4 font-bold">Book Appointment</h3>
-          </div>
-        </div>
+        ))}
       </div>
-    </section>
+    </div>
   )
 }
 
