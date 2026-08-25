@@ -1,0 +1,228 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-600);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --radius: 0.65rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.235 0.015 65);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.235 0.015 65);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.235 0.015 65);
+  --secondary: oklch(0.98 0.001 286.375);
+  --secondary-foreground: oklch(0.4 0.015 65);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.141 0.005 285.823);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.623 0.214 259.815);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.235 0.015 65);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.623 0.214 259.815);
+}
+
+.dark {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-500);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.85 0.005 65);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.85 0.005 65);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.85 0.005 65);
+  --secondary: oklch(0.24 0.006 286.033);
+  --secondary-foreground: oklch(0.7 0.005 65);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground:  oklch(0.92 0.005 65);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.488 0.243 264.376);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.85 0.005 65);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.488 0.243 264.376);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", "Noto Sans Devanagari", "Noto Sans Kannada", sans-serif;
+    background: #15110E;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .font-display { font-family: "Space Grotesk", "Noto Sans Devanagari", "Noto Sans Kannada", sans-serif; }
+  .glass-shell { border: 1px solid rgb(242 221 199 / 18%); border-radius: 1.25rem; background: rgb(28 23 19 / 84%); box-shadow: 0 14px 38px rgb(8 6 4 / 45%), inset 0 1px 0 rgb(255 244 232 / 8%); backdrop-filter: blur(22px); }
+  .glass-panel { border: 1px solid rgb(240 220 199 / 16%); border-radius: 1.25rem; background: linear-gradient(135deg, rgb(232 211 190 / 13%), rgb(96 72 54 / 10%)); box-shadow: 0 22px 44px rgb(8 6 4 / 32%), inset 0 1px 0 rgb(255 244 232 / 8%); backdrop-filter: blur(22px); }
+  .glow-button { background: linear-gradient(115deg, #E8CDB0, #C98D63); box-shadow: 0 8px 25px rgb(201 141 99 / 26%); transition: transform 160ms cubic-bezier(.23,1,.32,1), filter 160ms cubic-bezier(.23,1,.32,1), box-shadow 160ms cubic-bezier(.23,1,.32,1); }
+  .glow-button:hover { filter: brightness(1.08); box-shadow: 0 10px 30px rgb(201 141 99 / 40%); }
+  .glow-button:active { transform: scale(.97); }
+  .glass-button { border: 1px solid rgb(242 221 199 / 20%); background: rgb(244 223 201 / 9%); color: #F9EEDF; transition: background 160ms cubic-bezier(.23,1,.32,1), transform 160ms cubic-bezier(.23,1,.32,1); }
+  .glass-button:hover { background: rgb(244 223 201 / 16%); }
+  .glass-button:active { transform: scale(.97); }
+  .section-heading { display: flex; align-items: center; gap: 1rem; }
+  .section-heading h2 { font-family: "Space Grotesk", sans-serif; font-size: clamp(1.9rem, 3vw, 2.55rem); line-height: 1; font-weight: 600; letter-spacing: -0.035em; color: #FFF7ED; }
+  .section-number { display: grid; width: 2.65rem; height: 2.65rem; place-items: center; border-radius: .9rem; background: rgb(225 193 161 / 14%); color: #F3D5B6; font-size: .75rem; font-weight: 800; letter-spacing: .1em; }
+  .eyebrow { margin-bottom: .45rem; color: #E7C5A1; font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  .field-label { display: block; margin-top: 1rem; color: #E9D6C1; font-size: .74rem; font-weight: 700; }
+  .field-input, .field-select { width: 100%; margin-top: .45rem; border: 1px solid rgb(242 221 199 / 18%); border-radius: .7rem; background: rgb(12 9 7 / 42%); padding: .7rem .75rem; color: #FFF7ED; font-size: .875rem; outline: none; transition: border-color 160ms ease, background 160ms ease; }
+  .field-input:focus, .field-select:focus { border-color: rgb(223 177 136 / 88%); background: rgb(12 9 7 / 58%); box-shadow: 0 0 0 3px rgb(223 177 136 / 16%); }
+  .field-select option { background: #2A211B; color: #FFF7ED; }
+  .emergency-panel { border: 1px solid rgb(255 150 150 / 33%); background: linear-gradient(100deg, rgb(255 107 107 / 20%), rgb(255 107 107 / 7%) 55%, rgb(255 255 255 / 5%)); box-shadow: 0 20px 44px rgb(52 4 18 / 26%), inset 0 1px 0 rgb(255 255 255 / 13%); backdrop-filter: blur(18px); }
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+.cosmos-backdrop { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 12% 24%, rgb(117 83 59 / 34%), transparent 42%), radial-gradient(ellipse at 86% 74%, rgb(214 174 134 / 15%), transparent 38%), #15110E; }
+.nebula { position: absolute; width: 46rem; height: 31rem; border-radius: 999px; filter: blur(70px); opacity: .36; }
+.nebula-one { top: -14rem; right: -9rem; background: #6E4932; }.nebula-two { bottom: -17rem; left: -13rem; background: #A16B4A; }
+.star { position: absolute; width: .28rem; height: .28rem; border-radius: 50%; background: #F4DFC7; box-shadow: 0 0 15px #F4DFC7; animation: drift 10s ease-in-out infinite alternate; }
+.star-one { top: 18%; left: 8%; }.star-two { top: 43%; right: 11%; animation-delay: -4s; }.star-three { bottom: 15%; left: 48%; width: .18rem; height: .18rem; animation-delay: -7s; }
+.hero-orbital-card { min-height: 365px; transform: perspective(900px) rotateY(-3deg) rotateX(1deg); }.orbit { position: absolute; border: 1px solid rgb(226 190 155 / 20%); border-radius: 50%; pointer-events: none; }.orbit-one { width: 27rem; height: 15rem; top: 38%; left: 15%; transform: rotate(-29deg); }.orbit-two { width: 20rem; height: 11rem; top: 42%; left: 25%; border-color: rgb(201 141 99 / 20%); transform: rotate(32deg); }
+
+/* Harmonize utility-led controls with the warm neutral product palette. */
+.text-violet-100, .text-violet-200, .text-cyan-100, .text-cyan-200 { color: #E8CDB0 !important; }
+.border-cyan-200\/15, .border-cyan-200\/25, .border-cyan-200\/45, .border-cyan-200\/70 { border-color: rgb(232 205 176 / 42%) !important; }
+.bg-cyan-200\/10, .bg-cyan-300\/10, .bg-cyan-300\/15, .bg-cyan-300\/25 { background-color: rgb(201 141 99 / 16%) !important; }
+.bg-cyan-300 { background-color: #E8CDB0 !important; }
+.from-violet-400, .from-violet-500 { --tw-gradient-from: rgb(188 139 100 / 50%) var(--tw-gradient-from-position) !important; --tw-gradient-to: rgb(188 139 100 / 0%) var(--tw-gradient-to-position) !important; }
+.to-violet-400\/15 { --tw-gradient-to: rgb(201 141 99 / 18%) var(--tw-gradient-to-position) !important; }
+.to-cyan-300 { --tw-gradient-to: rgb(232 205 176 / 82%) var(--tw-gradient-to-position) !important; }
+.via-cyan-200\/70 { --tw-gradient-via: rgb(232 205 176 / 72%) var(--tw-gradient-via-position) !important; }
+.focus\:ring-cyan-300:focus { --tw-ring-color: rgb(223 177 136 / 70%) !important; }
+
+/* The hero capability card is intentionally concise; keep its language count aligned with the selector. */
+.hero-orbital-card .grid.grid-cols-2 > div:nth-child(2) > p:last-child { font-size: 0; }
+.hero-orbital-card .grid.grid-cols-2 > div:nth-child(2) > p:last-child::after { content: "6 choices"; font-size: 1.25rem; }
+
+button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 2px solid #E8CDB0 !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgb(232 205 176 / 18%) !important;
+}
+@keyframes drift { to { transform: translate3d(12px, -16px, 0); opacity: .6; } }
+@media (max-width: 640px) { .hero-orbital-card { min-height: auto; transform: none; } .orbit { display: none; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .hero-orbital-card { transform: none; } }
